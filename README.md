@@ -193,7 +193,130 @@ In kotlin we have keywords to create arrays similar like PHP or Python they have
 In Kotlin there is a function called ```arrayOf()``` which will be used to create array's in Kotlin.
 ```Kotlin
 var a = arrayOf(1,2,3,4)
-println(a)
-println(a[0])
+println(a)      // [Ljava.lang.Integer;@2c7b84de
+println(a[0])   // 1
 ```
+**Traverse elements of array in loop**
+```kotlin
+var a = arrayOf(1,2,3,4)
+for(i in a){
+    println(i)
+}
+```
+**Array with different datatype**
+```kotlin
+var a = arrayOf(1,2,3.5,59.5,"Akshay",84,true)
+for(i in a){
+    println(i)
+}
+```
+**Restrict array to store single datatype entries only**
+```kotlin
+var a = arrayOf<Int>(1,2,3,4,5,"Akshay",6) // This will give error here
+for(i in a){
+    println(i)
+}
+```
+**2D Matrix using multidimensional array**
+```kotlin
+var arr = arrayOf(
+    arrayOf(1,2,3),
+    arrayOf(4,5,6),
+    arrayOf(7,8,9)
+)
+for(i in arr){
+    for(j in i){
+        print("${j} ")
+    }
+    println("")
+}
+/*
+    1 2 3
+    4 5 6
+    7 8 9
+*/
+```
+## Classes in Kotlin
+Classes are similar like JAVA we use the same syntax to create a new class. Create a new file same as the new class name  
+```kotlin
+class Hero{
+    var name : String = ""
+}
+```
+**To create object of a class simple use**
+```kotlin
+var ironman = Hero()
+ironman.name = "Tony Stark"
+println("The name of ironman is ${ironman.name}")
+```
+We can also write multiple classes in a single file same as the below example
+**Lets write another example**
+```kotlin
+// File name is Main.kt
+fun main(args : Array<String>){
+
+    var samsung = Brand()
+    samsung.phone = "Samsung Galaxy S10"
+    var MI = Brand()
+    MI.phone = "Readme Note 4"
+
+    println("My samsung phone name is ${samsung.phone} \nMy MI phone name is ${MI.phone}")
+}
+class Brand{
+    var phone : String = ""
+}
+```
+### Parameterized Functions with Return Type
+In Kotlin we have to specify the return type after the function parameter brackets. The datatype before curli braces is the return type datatype
+```kotlin
+fun findSquare(a : Int) : Int {
+    return a * a
+}
+fun sum(a : Int, b : Int) : Int {
+    return a + b
+}
+```
+**Class containing function and function calling with return type**
+```kotlin
+// File name Main.kt
+fun main(args : Array<String>){
+    var a : Int = 20
+    var b : Int = 40
+    var myMath = MyMath()
+    var c : Int = myMath.sum(a,b)
+    var d : Int = myMath.mul(a,b)
+    var e : Float = 403.43
+    var f : Float = 33.2
+    var g : Float = myMath.div(e,f)
+    var h : String = myMath.vote(23)
+    println("Sum of two numbers ${a} and ${b} is ${c}")
+    println("Product of two numbers ${a} and ${b} is ${d}")
+    println("Division of two numbers ${e} and ${f} is ${g}")
+    println("Can I vote ${h}")
+}
+class MyMath{
+    fun sum(a : Int,b : Int) : Int{
+        return a + b
+    }
+    fun mul(a : Int,b : Int) : Int{
+        return a * b
+    }
+    fun div(a : Float,b : Float) : Float{
+        return a / b
+    }
+    fun vote(a : Int) : String{
+        return if(a>=18) "Yes you can vote" else "No You cannot vote"
+    }
+}
+```
+<object data="https://kotlinlang.org/docs/kotlin-docs.pdf" type="application/pdf" width="700px" height="700px">    
+</object>
+
+
+
+
+
+
+
+
 
